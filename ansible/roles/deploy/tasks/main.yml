@@ -1,0 +1,21 @@
+---
+
+- name: Creates directory
+  file:
+    path: /app
+    state: directory
+
+- name: Copy docker-compose to remote
+  become: true
+  copy:
+    src: "{{ local_dir }}"
+    dest: "/app/docker-compose.yml"
+    owner: ubuntu
+    group: ubuntu
+    mode: 0777
+
+- name: Deploy
+  command: "docker-compose -f docker-compose.yml up -d"
+  args:
+    chdir: "{{ app_dir }}"
+  become: true

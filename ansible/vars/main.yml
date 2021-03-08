@@ -1,0 +1,8 @@
+---
+app_name: vova_cv
+app_user: vova
+app_dir: /app
+git_app_repo: https://github.com/VolodymyrPastukh/CvProject.git
+local_dir: ~/work/CvProject/docker-compose.yml
+
+sys_user: vova
